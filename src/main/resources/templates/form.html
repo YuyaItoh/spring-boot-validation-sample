@@ -19,7 +19,7 @@
                 <!--/* 
                     is-invalid が有効なときのみ invalid-feedback の内容が表示される
                     また、invalid-feedbak が付与された時が text-right で align 可能。これがない場合は float-right になるので注意
-                Í*/ -->
+                */-->
                 <span class="invalid-feedback text-right" th:errors="*{string}"></span>
             </div>
             <div class="form-group">
@@ -42,7 +42,16 @@
                 <input type="text" class="form-control" th:classappend="${#fields.hasErrors('localDate')}? 'is-invalid'" th:field="*{localDate}" />
                 <span class="invalid-feedback text-right" th:errors="*{localDate}"></span>
             </div>
-
+            <div class="form-group">
+                <label for="password">password</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('password')}? 'is-invalid'" th:field="*{password}" />
+                <span class="invalid-feedback text-right" th:errors="*{password}"></span>
+            </div>
+            <div class="form-group">
+                <label for="confirmPassword">confirmPassword</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('confirmPassword')}? 'is-invalid'" th:field="*{confirmPassword}" />
+                <span class="invalid-feedback text-right" th:errors="*{confirmPassword}"></span>
+            </div>
             <input type="submit" class="btn btn-outline-dark" value="送信" />
         </form>
     </div>

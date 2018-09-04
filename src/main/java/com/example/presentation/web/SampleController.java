@@ -20,6 +20,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.example.util.validation.Confirm;
+
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 
@@ -53,6 +55,7 @@ public class SampleController {
     }
 
     @Data
+    @Confirm(source = "password", target = "confirmPassword")
     public static class SampleForm {
         @NotNull
         @Length(min = 5, max = 10)
@@ -69,5 +72,9 @@ public class SampleController {
         private YearMonth yearMonth;
 
         private LocalDate localDate;
+
+        private String password;
+
+        private String confirmPassword;
     }
 }
