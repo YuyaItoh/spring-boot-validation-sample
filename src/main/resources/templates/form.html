@@ -14,7 +14,12 @@
         <form th:action="@{/}" th:object="${sampleForm}" method="post">
             <div class="form-group">
                 <label class="required" for="string">string</label>
+                <!--/* is-invalid は Bootstrap 4 から */-->
                 <input type="text" class="form-control" th:classappend="${#fields.hasErrors('string')}? 'is-invalid'" th:field="*{string}" />
+                <!--/* 
+                    is-invalid が有効なときのみ invalid-feedback の内容が表示される
+                    また、invalid-feedbak が付与された時が text-right で align 可能。これがない場合は float-right になるので注意
+                Í*/ -->
                 <span class="invalid-feedback text-right" th:errors="*{string}"></span>
             </div>
             <div class="form-group">
