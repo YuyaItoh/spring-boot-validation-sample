@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" th:href="@{/base.css}" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>サンプルフォーム</h1>
+        <p th:if="${SUCCESS}" class="alert alert-success" th:text="${SUCCESS}"></p>
+        <form th:action="@{/}" th:object="${sampleForm}" method="post">
+            <div class="form-group">
+                <label class="required" for="string">string</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('string')}? 'is-invalid'" th:field="*{string}" />
+                <span class="invalid-feedback text-right" th:errors="*{string}"></span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="integer">integer</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('integer')}? 'is-invalid'" th:field="*{integer}" />
+                <span class="invalid-feedback text-right" th:errors="*{integer}"></span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="bigDecimal">bigDecimal</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('bigDecimal')}? 'is-invalid'" th:field="*{bigDecimal}" />
+                <span class="invalid-feedback text-right" th:errors="*{bigDecimal}"></span>
+            </div>
+            <div class="form-group">
+                <label for="yearMonth">yearMonth</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('yearMonth')}? 'is-invalid'" th:field="*{yearMonth}" />
+                <span class="invalid-feedback text-right" th:errors="*{yearMonth}"></span>
+            </div>
+            <div class="form-group">
+                <label for="localDate">localDate</label>
+                <input type="text" class="form-control" th:classappend="${#fields.hasErrors('localDate')}? 'is-invalid'" th:field="*{localDate}" />
+                <span class="invalid-feedback text-right" th:errors="*{localDate}"></span>
+            </div>
+
+            <input type="submit" class="btn btn-outline-dark" value="送信" />
+        </form>
+    </div>
+</body>
+
+</html>

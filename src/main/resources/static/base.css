@@ -1,0 +1,5 @@
+.required::after {
+    content: " [必須]";
+    color: #dc3545;
+    font-weight: bold;
+}
